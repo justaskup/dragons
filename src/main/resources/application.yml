@@ -1,0 +1,61 @@
+spring:
+    main:
+        banner-mode: "off"
+        web-environment: false
+logging:
+    path: logs/
+    level:
+        root: WARN
+        lt:
+            kupliauskas:
+                dragons: WARN
+client:
+    base-url: https://dragonsofmugloar.com/api/v2
+voters:
+    probability:
+        probability-scores:
+            "[Sure thing]": 1000
+            "[Piece of cake]": 900
+            "[Walk in the park]": 900
+            "[Quite likely]": 800
+            "[Hmmm....]": 700
+            Gamble: 600
+            Risky: 500
+            "[Playing with fire]": 400
+            "[Rather detrimental]": 300
+            "[Suicide mission]": 200
+            Impossible: 100
+    text:
+        classifications:
+            steal:
+                pattern: "Steal .* from .*"
+                score: 0
+            share:
+                pattern: "Steal .* delivery to .* and share some of the profits with.*"
+                score: -200 # people: +1 / state: -2
+            investigate:
+                pattern: "Investigate .* and find out their relation to the.*"
+                score: 0
+            infiltrate:
+                pattern: "Infiltrate .* and recover their.*"
+                score: 0
+            help:
+                pattern: "Help .* to [^ ]+ (the|a).*"
+                score: 0
+            defend:
+                pattern: "Help defending .* from the intruders.*"
+                score: 0
+            escor:
+                pattern: "Escort .* to .* where they can meet with their long lost.*"
+                score: 0
+            ads:
+                pattern: "Create an advertisement campaign for .* to promote their .* based business.*"
+                score: 0
+            rescue:
+                pattern: "Rescue .* from.*"
+                score: 0
+            kill:
+                pattern: "Kill .* with clothes and make .* from .* to take the blame"
+                score: 0
+    reward:
+        multiplier: 1
